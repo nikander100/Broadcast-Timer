@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html> 
+	<head> 
+		<title> Stream Timer </title>
+		<link href="main.css" rel="stylesheet" type="text/css"> 
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+	</head>
+
+	<body> 
+		<center><div class="wrapper"> 
+			<div class="timer"> 
+			<span id="time">00:00</span>
+			<br><br><br><br><br><br><br><br>
+			<button onclick="myTimerObj.start()">Start counter</button>
+			<button onclick="myTimerObj.end()">Stop counter</button>
+
+<script type="text/javascript">
+var myTimerObj = (function(document){
+var myTimer;
+function start() {
+	display = document.querySelector('#time');
+	myTimer = setInterval(myClock, 1000);
+	var c = 300; //Set the time in seconds.
+
+function myClock() {
+	--c
+	var seconds = c % 60;
+	var secondInMinutes = (c - seconds) / 60;
+	var minutes = secondInMinutes % 60;
+	minutes = minutes < 10 ? "0" + minutes : minutes;
+	seconds = seconds < 10 ? "0" + seconds : seconds;
+	display.textContent = minutes + ":" + seconds;
+	if (c == 0) {
+		clearInterval(myTimer);
+		}
+	}
+}
+function end() {
+	clearInterval(myTimer)
+}
+
+	return {start:start, end:end};
+})(document);
+</script></center> 
+	</body>
+</html>
