@@ -17,10 +17,8 @@
 			<button onclick="myTimerObj.end()">Stop counter</button>
 
 <script type="text/javascript">
-var myTimerObj = (function(document){
 var myTimer;
 function start() {
-	display = document.querySelector('#time');
 	myTimer = setInterval(myClock, 1000);
 	var c = 300; //Set the time in seconds.
 
@@ -40,9 +38,10 @@ function myClock() {
 function end() {
 	clearInterval(myTimer)
 }
-
-	return {start:start, end:end};
-})(document);
+	
+window.onload = function () {
+	start();
+}
 </script></center> 
 	</body>
 </html>
